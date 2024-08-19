@@ -14,7 +14,7 @@ class MultiHeadAttention(nn.Module):
         dropout = config['dropout']
 
         self.heads = nn.ModuleList([Head(head_size) for _ in range(num_heads)])
-        self.proj = nn.Linear(head_size * num_heads, n_embd)
+        self.proj = nn.Linear(head_size * num_heads, n_embd) # projection back into the redidual pathway
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
